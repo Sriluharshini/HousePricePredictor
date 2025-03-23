@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>House Price Pridiction</title>
+    <style type="text/css"> 
+        body{
+            margin: 0;
+            padding: 0;
+        
+            background-size: cover;
+            background-position: center;
+            font-family: sans-serif;
+        }
+        
+        .EnterDetails{
+            width: auto;
+            height: 620px;
+            background: rgb(68, 66, 66);
+            color: #fff;
+            top: 60%;
+            bottom: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            padding: 70px 30px;
+        }
+        
+        .avatar{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: -50px; 
+            left: calc(50% - 50px);
+        }
+        
+        h1{
+            margin: 0;
+            padding: 0 0 20px;
+            text-align: center;
+            font-size: 22px;
+        }
+        
+        .EnterDetails p{
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+        }
+        
+        .EnterDetails input{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .EnterDetails input[type="text"], input[type="text"]
+        {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .EnterDetails input[type="text"], input[type = "text"], input[type="select"]
+        {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+        }
+        .EnterDetails input[type="submit"]
+        {
+            border: none;
+            outline: none;
+            height: 40px;
+            background: #fb2525;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 20px;
+        }
+        
+        .EnterDetails input[type="submit"]:hover
+        {
+            cursor: pointer;
+            background: #ffc107;
+            color: #000;
+        }
+        
+        .EnterDetails a{
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 20px;
+            color: darkgrey;
+        }
+        </style>
+    </head>
+                
+    <body >
+        <br><br>
+    <h1>HOUSE PRICE PREDICTION USING MACHINE LEARNING</h1>
+    <div class="EnterDetails">
+        <a href="{{url_for('static',filename='Desc.png')}}" target="_blank">
+        <img src="{{url_for('static',filename='house.png')}}" class="avatar"></a>
+        <h1>Enter details here</h1>
+        <form action="/predict" method="post">
+            
+        <label>Lot Area (in square feet):</label><br>
+        <input type="number" placeholder="Enter Lotsize here" id='lotsize' name='lotsize'><br>
+            
+            
+            
+        <label>Number of Bedrooms :</label><br>
+        <input type="number" placeholder="No. of Bedrooms" id='bedrooms' name='bedrooms'><br>
+            
+        <label>Number of Bathrooms :</label><br>
+        <input type="number" placeholder="No. of Bathrooms" id='bathrooms' name='bathrooms'><br>
+
+        <label>Number of Garage Places :</label>
+            <input type="number" placeholder="No. of Garage places" id='garpl' name='garpl'><br>
+            
+        <label >Type of Heating</label>
+             <Select id="heating" name='Heating'>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            
+            </Select><br> <br>  
+        
+        
+            <label>Do you want Pool? </label>
+                <Select id="Pool" name='PoolArea'>
+            <option value='1'>1</option>
+             <option  value="0" >0</option>
+                </Select><br><br>
+            
+            
+            <label>Basement Quality</label>
+             <Select id="Basement" name='basement'>
+            <option value='2'>2</option>
+             <option value="3" >3</option>
+             <option value='4'>4</option>
+             <option value='1'>1</option>            
+            </Select><br> <br>
+
+            <label>Stories</label>
+            <Select id="Stories" name='stories'>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            </Select><br>
+            <br>
+            <label>Central air conditioning?</label>
+          <Select  id="airco" name='airco'>
+            <option value='1'>1</option>
+             <option value="0" >0</option>
+                </Select><br><br>
+
+            <label>Pavement</label>
+                <Select id="pavement" name='Pavement'>
+                  <option value='1'>1</option>
+                   <option value="0" >0</option>
+                      </Select><br><br>
+        
+              <label>Do you have a prefered area?</label>
+             <Select id="prefarea" name='prefarea'>
+             <option value='1'>1</option>
+                <option  value="2" >2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                </Select><br><br>
+
+    
+                <input type="submit" name="" value="Submit">
+    
+            </form>
+    </div>
+    <div id=result>
+
+        <p> {{pred}}</p>
+       </div>
+
+</body>
+    
+
+</html>
